@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 df = pd.read_csv('filmes.csv')
 df['descricao'] = df['descricao'].fillna('')
+df['titulo_lower'] = df['titulo'].str.lower()
 
 vetorizar = TfidfVectorizer(stop_words= None)
 matriz_tfidf = vetorizar.fit_transform(df['descricao'])
@@ -11,11 +12,13 @@ matriz_tfidf = vetorizar.fit_transform(df['descricao'])
 similaridade = cosine_similarity(matriz_tfidf, matriz_tfidf)
 
 def recomendar_filmes(titulo, n=5):
-    if titulo not in df['titulo'].values:
+    titulo_busca = titulo.lower()
+
+    if titulo_busca not in df['titulo_lower'].values:
         print("Filme não encontrado.")
         return
     
-    idx = df[df['titulo'] == titulo].index[0]
+    idx = df[df['titulo_lower'] == titulo_busca].index[0]
 
     scores = list(enumerate(similaridade[idx]))
 
@@ -23,9 +26,10 @@ def recomendar_filmes(titulo, n=5):
 
     scores = scores[1:n+1]
 
-    print(f"\n Filmes semelhantes a '{titulo}': ")
+    titulo_original = df.iloc[idx]['titulo']
+    print(f"\n Filmes semelhantes a '{titulo_original}': ")
     for i, score in scores:
         print(f"- {df.iloc[i]['titulo']} (similaridade: {score:.2f})")
     
 
-recomendar_filmes("Matrix")
+recomendar_filmes("MATRIX")

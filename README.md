@@ -5,7 +5,7 @@ O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes
 
 ---
 
-# 📌 Objetivo do Projeto
+## 📌 Objetivo do Projeto
 
 O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 
@@ -18,7 +18,7 @@ O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 
 ---
 
-# 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 * Python
 * Pandas
@@ -26,7 +26,7 @@ O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 
 ---
 
-# 📄 Dataset
+## 📄 Dataset
 
 O arquivo `filmes.csv` contém:
 
@@ -42,11 +42,11 @@ Matrix,"Um hacker descobre a verdade sobre sua realidade..."
 
 ---
 
-# ⚙️ Como o Sistema Funciona
+## ⚙️ Como o Sistema Funciona
 
 O sistema segue as seguintes etapas:
 
-## 1. Leitura dos dados
+### 1. Leitura dos dados
 
 O arquivo CSV é carregado usando Pandas:
 
@@ -56,7 +56,7 @@ df = pd.read_csv('filmes.csv')
 
 ---
 
-## 2. Tratamento de valores nulos
+### 2. Tratamento de valores nulos
 
 Descrições vazias são substituídas por texto vazio:
 
@@ -66,7 +66,7 @@ df['descricao'] = df['descricao'].fillna('')
 
 ---
 
-## 3. Vetorização TF-IDF
+### 3. Vetorização TF-IDF
 
 As descrições dos filmes são transformadas em números usando o algoritmo **TF-IDF**.
 
@@ -91,7 +91,7 @@ Exemplo:
 
 ---
 
-# 📐 Similaridade do Cosseno
+## 📐 Similaridade do Cosseno
 
 Após transformar os textos em vetores numéricos, o sistema utiliza a **Similaridade do Cosseno** para medir o quanto dois filmes são parecidos.
 
@@ -123,7 +123,7 @@ O valor varia entre:
 
 ---
 
-# 🔎 Como a recomendação é feita
+## 🔎 Como a recomendação é feita
 
 Quando o usuário informa um filme:
 
@@ -148,9 +148,9 @@ Filmes semelhantes a 'Matrix':
 
 ---
 
-# ▶️ Como executar o projeto
+## ▶️ Como executar o projeto
 
-## 1. Instale as dependências
+### 1. Instale as dependências
 
 ```bash
 pip install pandas scikit-learn
@@ -158,7 +158,7 @@ pip install pandas scikit-learn
 
 ---
 
-## 2. Execute o arquivo
+### 2. Execute o arquivo
 
 ```bash
 python recomendador.py
@@ -166,7 +166,7 @@ python recomendador.py
 
 ---
 
-# 💡 Conceitos Aprendidos
+## 💡Conceitos Aprendidos
 
 Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learning:
 
@@ -179,7 +179,7 @@ Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learni
 
 ---
 
-# 🚀 Possíveis Melhorias Futuras
+## Possíveis Melhorias Futuras
 
 * Adicionar gênero dos filmes
 * Adicionar diretor

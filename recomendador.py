@@ -6,8 +6,13 @@ df = pd.read_csv('filmes.csv')
 df['descricao'] = df['descricao'].fillna('')
 df['titulo_lower'] = df['titulo'].str.lower()
 
+
+df['conteudo'] = (
+    df['genero'] + ' ' + df['diretor'] + ' ' + df['descricao']
+)
+
 vetorizar = TfidfVectorizer(stop_words= None)
-matriz_tfidf = vetorizar.fit_transform(df['descricao'])
+matriz_tfidf = vetorizar.fit_transform(df['conteudo'])
 
 similaridade = cosine_similarity(matriz_tfidf, matriz_tfidf)
 
@@ -28,8 +33,9 @@ def recomendar_filmes(titulo, n=5):
 
     titulo_original = df.iloc[idx]['titulo']
     print(f"\n Filmes semelhantes a '{titulo_original}': ")
+    #print(f"  Gênero: {df.iloc[idx]['genero']}")
     for i, score in scores:
         print(f"- {df.iloc[i]['titulo']} (similaridade: {score:.2f})")
     
 
-recomendar_filmes("MATRIX")
+recomendar_filmes("shrek")

@@ -38,4 +38,20 @@ def recomendar_filmes(titulo, n=5):
         print(f"- {df.iloc[i]['titulo']} (similaridade: {score:.2f})")
     
 
-recomendar_filmes("shrek")
+
+print("=== RECOMENDADOR DE FILMES ===")
+
+continuar = "s"
+
+while continuar == "s":
+    titulo = input(f"\n Digite o nome de um filme: ")
+    recomendar_filmes(titulo)
+
+    continuar = input(f"\n Deseja fazer outra busca? (s/n): ").lower()
+
+    while continuar != "s" and continuar != "n":
+        print("Mensagem inválida! Digite apenas 's' ou 'n'.")
+        continuar = input(f"\n Deseja fazer outra busca? (s/n): ").lower()
+
+
+print(f"\n Obrigado por utilzar o recomendador de filmes!")

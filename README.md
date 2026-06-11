@@ -1,7 +1,7 @@
 # 🎬 Sistema de Recomendação de Filmes
 
 Um sistema simples de recomendação de filmes desenvolvido em Python utilizando técnicas de Processamento de Linguagem Natural (NLP) e Machine Learning.
-O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes com descrições parecidas e recomendar títulos semelhantes ao usuário.
+O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes com descrições, gêneros e diretores parecidos e recomendar títulos semelhantes ao usuário.
 
 ---
 
@@ -31,13 +31,15 @@ O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 O arquivo `filmes.csv` contém:
 
 * Título do filme
+* Gênero do filme
+* Diretor do filme
 * Descrição/resumo do filme
 
 Exemplo:
 
 ```csv
-titulo,descricao
-Matrix,"Um hacker descobre a verdade sobre sua realidade..."
+titulo,genero,diretor,descricao
+Matrix,Ficção Científica,Wachowski,"Um hacker descobre a verdade sobre sua realidade..."
 ```
 
 ---
@@ -68,11 +70,15 @@ df['descricao'] = df['descricao'].fillna('')
 
 ### 3. Vetorização TF-IDF
 
-As descrições dos filmes são transformadas em números usando o algoritmo **TF-IDF**.
+As informações dos filmes são transformadas em números usando o algoritmo **TF-IDF**.
 
 ```python
+df['conteudo'] = (
+    df['genero'] + ' ' + df['diretor'] + ' ' + df['descricao']
+)
+
 vetorizar = TfidfVectorizer(stop_words=None)
-matriz_tfidf = vetorizar.fit_transform(df['descricao'])
+matriz_tfidf = vetorizar.fit_transform(df['conteudo'])
 ```
 
 ### O que é TF-IDF?
@@ -127,10 +133,6 @@ O valor varia entre:
 
 Quando o usuário informa um filme:
 
-```python
-recomendar_filmes("Matrix")
-```
-
 o sistema:
 
 1. encontra o índice do filme
@@ -181,10 +183,7 @@ Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learni
 
 ## Possíveis Melhorias Futuras
 
-* Adicionar gênero dos filmes
-* Adicionar diretor
 * Melhorar o dataset com mais filmes
-* Ignorar letras maiúsculas/minúsculas na busca
 * Criar interface gráfica
 * Utilizar banco de dados
 * Permitir recomendação por gênero

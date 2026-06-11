@@ -20,8 +20,7 @@ def recomendar_filmes(titulo, n=5):
     titulo_busca = titulo.lower()
 
     if titulo_busca not in df['titulo_lower'].values:
-        print("Filme não encontrado.")
-        return
+        return []
     
     idx = df[df['titulo_lower'] == titulo_busca].index[0]
 
@@ -31,27 +30,20 @@ def recomendar_filmes(titulo, n=5):
 
     scores = scores[1:n+1]
 
+    resultados = []
+
+    for i, score in scores:
+
+        titulo_filme = df.iloc[i]['titulo']
+
+        resultados.append((titulo_filme, score))
+
+
+    return resultados
+
     titulo_original = df.iloc[idx]['titulo']
     print(f"\n Filmes semelhantes a '{titulo_original}': ")
     #print(f"  Gênero: {df.iloc[idx]['genero']}")
     for i, score in scores:
         print(f"- {df.iloc[i]['titulo']} (similaridade: {score:.2f})")
     
-
-
-print("=== RECOMENDADOR DE FILMES ===")
-
-continuar = "s"
-
-while continuar == "s":
-    titulo = input(f"\n Digite o nome de um filme: ")
-    recomendar_filmes(titulo)
-
-    continuar = input(f"\n Deseja fazer outra busca? (s/n): ").lower()
-
-    while continuar != "s" and continuar != "n":
-        print("Mensagem inválida! Digite apenas 's' ou 'n'.")
-        continuar = input(f"\n Deseja fazer outra busca? (s/n): ").lower()
-
-
-print(f"\n Obrigado por utilzar o recomendador de filmes!")

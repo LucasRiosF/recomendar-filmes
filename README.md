@@ -23,6 +23,7 @@ O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 * Python
 * Pandas
 * Scikit-learn
+* Streamlit
 
 ---
 

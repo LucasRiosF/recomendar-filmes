@@ -184,7 +184,6 @@ Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learni
 ## Possíveis Melhorias Futuras
 
 * Melhorar o dataset com mais filmes
-* Criar interface gráfica
 * Utilizar banco de dados
 * Permitir recomendação por gênero
 * Sistema de usuários e avaliações

@@ -40,10 +40,3 @@ def recomendar_filmes(titulo, n=5):
 
 
     return resultados
-
-    titulo_original = df.iloc[idx]['titulo']
-    print(f"\n Filmes semelhantes a '{titulo_original}': ")
-    #print(f"  Gênero: {df.iloc[idx]['genero']}")
-    for i, score in scores:
-        print(f"- {df.iloc[i]['titulo']} (similaridade: {score:.2f})")
-    

@@ -8,12 +8,30 @@ st.write("Encontre filmes semelhantes ao seu favorito")
 titulo = st.text_input("Digite o nome de um filme")
 
 if st.button("Buscar"):
-    resultados = recomendar_filmes(titulo)
 
-    if not resultados:
-        st.error("Filme não encontrado.")
+    if not titulo:
+        st.warning("Digite o nome de um filme.")
     else:
-        st.write(f"Filmes semelhantes a '{titulo}': ")
 
-        for titulo, score in resultados:
-            st.write(f"- {titulo} (similaridade: {score:.2f})")
+        resultados = recomendar_filmes(titulo)
+
+        if not resultados:
+            st.error("Filme não encontrado.")
+        else:
+            st.subheader(f"Filmes semelhantes a '{titulo}': ")
+
+            for titulo_filme, score in resultados:
+                st.markdown(
+                    f"""
+                    <div style="
+                        border-radius:10px;
+                        padding:15px;
+                        margin-bottom:10px;
+                        background-color:#DCDCDC;
+                    ">
+                        <h4>{titulo_filme}</h4>
+                        <p> Similaridade: {score*100:.1f}%</p>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )

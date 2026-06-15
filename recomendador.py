@@ -8,7 +8,7 @@ df['titulo_lower'] = df['titulo'].str.lower()
 
 
 df['conteudo'] = (
-    df['genero'] + ' ' + df['diretor'] + ' ' + df['descricao']
+    df['genero'] + ' ' + df['subgenero'] + ' ' + df['diretor'] + ' ' + df['descricao']
 )
 
 vetorizar = TfidfVectorizer(stop_words= None)

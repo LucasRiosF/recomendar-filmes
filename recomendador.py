@@ -3,6 +3,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 df = pd.read_csv('filmes.csv')
+df['genero'] = df['genero'].fillna('')
+df['subgenero'] = df['subgenero'].fillna('')
+df['diretor'] = df['diretor'].fillna('')
 df['descricao'] = df['descricao'].fillna('')
 df['titulo_lower'] = df['titulo'].str.lower()
 
@@ -40,3 +43,13 @@ def recomendar_filmes(titulo, n=5):
 
 
     return resultados
+
+
+
+lista_titulos = df['titulo'].fillna('').astype(str).tolist()
+
+def buscar_filmes(termo_digitado: str):
+    if not termo_digitado:
+        return []
+    
+    return [filme for filme in lista_titulos if termo_digitado.lower() in filme.lower()]

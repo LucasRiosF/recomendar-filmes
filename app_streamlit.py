@@ -1,11 +1,17 @@
 import streamlit as st
-from recomendador import recomendar_filmes
+from streamlit_searchbox import st_searchbox
+from recomendador import recomendar_filmes, buscar_filmes
 
 st.title("🎬 Recomendador de Filmes")
 
 st.write("Encontre filmes semelhantes ao seu favorito")
 
-titulo = st.text_input("Digite o nome de um filme")
+titulo = st_searchbox(
+    buscar_filmes,
+    key="busca_filmes",
+    placeholder="Digite o nome de um filme",
+    clear_on_submit=False
+)
 
 if st.button("Buscar"):
 

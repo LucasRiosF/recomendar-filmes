@@ -1,8 +1,13 @@
 # 🎬 Sistema de Recomendação de Filmes
 
-Um sistema simples de recomendação de filmes desenvolvido em Python utilizando técnicas de Processamento de Linguagem Natural (NLP) e Machine Learning.
-O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes com descrições, gêneros e diretores parecidos e recomendar títulos semelhantes ao usuário.
+Um sistema sde recomendação de filmes desenvolvido em Python utilizando técnicas de Processamento de Linguagem Natural (NLP) e Machine Learning.
+O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes com descrições, gêneros, subgêneros e diretores parecidos e recomendar títulos semelhantes ao usuário.
 
+A aplicação possui duas formas de utilização:
+
+- **Terminal (CLI)**: interação via console.
+- **Interface Web**: desenvolvida com Streamlit para uma experiência mais amigável.
+  
 ---
 
 ## 📌 Objetivo do Projeto
@@ -24,6 +29,7 @@ O objetivo deste projeto é estudar e aplicar conceitos importantes de:
 * Pandas
 * Scikit-learn
 * Streamlit
+* Streamlit Searchbox
 
 ---
 
@@ -140,9 +146,9 @@ o sistema:
 1. encontra o índice do filme
 2. calcula os filmes mais parecidos
 3. ordena pela maior similaridade
-4. exibe os melhores resultados
+4. exibe os cinco melhores resultados
 
-Exemplo de saída:
+Exemplo de saída (no terminal):
 
 ```bash
  Filmes semelhantes a 'matrix': 
@@ -157,19 +163,39 @@ Exemplo de saída:
 
 ## ▶️ Como executar o projeto
 
-### 1. Instale as dependências
+### 1. Clonar o Repositório
 
 ```bash
-pip install pandas scikit-learn
+git clone https://github.com/seu-usuario/recomendador-filmes.git
+cd recomendador-filmes
+```
+---
+
+### 2. Instale as dependências
+
+```bash
+pip install pandas scikit-learn streamlit streamlit-searchbox
 ```
 
 ---
 
-### 2. Execute o arquivo
+### 3. Execute o arquivo
+
+## ▶️ Executar a Versão Terminal
 
 ```bash
 python app.py
 ```
+
+---
+
+## 🌐 Executar a Interface Web
+
+```bash
+streamlit run app_streamlit.py
+```
+
+Após a execução, o Streamlit abrirá automaticamente no navegador.
 
 ---
 
@@ -190,6 +216,5 @@ Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learni
 
 * Melhorar o dataset com mais filmes
 * Utilizar banco de dados
-* Permitir recomendação por gênero
 * Sistema de usuários e avaliações
 * Recomendação híbrida

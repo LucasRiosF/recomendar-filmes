@@ -15,6 +15,8 @@ Acesse a aplicação online:
 
 [LINK DO PROJETO](https://recomendar-filmes.streamlit.app/)
 
+---
+
 ## 📌 Objetivo do Projeto
 
 O objetivo deste projeto é estudar e aplicar conceitos importantes de:

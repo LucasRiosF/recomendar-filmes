@@ -33,7 +33,7 @@ if st.button("Buscar"):
                         border-radius:10px;
                         padding:15px;
                         margin-bottom:10px;
-                        background-color:#DCDCDC;
+                        background-color:#A9A9A9;
                     ">
                         <h4>{titulo_filme}</h4>
                         <p> Similaridade: {score*100:.1f}%</p>

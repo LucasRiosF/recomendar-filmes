@@ -13,7 +13,7 @@ A aplicação possui duas formas de utilização:
 
 Acesse a aplicação online:
 
-[Link](https://recomendar-filmes.streamlit.app/)
+[LINK DO PROJETO](https://recomendar-filmes.streamlit.app/)
 
 ## 📌 Objetivo do Projeto
 

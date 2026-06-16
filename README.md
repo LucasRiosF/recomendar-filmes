@@ -1,6 +1,6 @@
 # 🎬 Sistema de Recomendação de Filmes
 
-Um sistema sde recomendação de filmes desenvolvido em Python utilizando técnicas de Processamento de Linguagem Natural (NLP) e Machine Learning.
+Um sistema de recomendação de filmes desenvolvido em Python utilizando técnicas de Processamento de Linguagem Natural (NLP) e Machine Learning.
 O projeto utiliza **TF-IDF** e **Similaridade do Cosseno** para encontrar filmes com descrições, gêneros, subgêneros e diretores parecidos e recomendar títulos semelhantes ao usuário.
 
 A aplicação possui duas formas de utilização:
@@ -9,6 +9,11 @@ A aplicação possui duas formas de utilização:
 - **Interface Web**: desenvolvida com Streamlit para uma experiência mais amigável.
   
 ---
+## 💻 Demonstração
+
+Acesse a aplicação online:
+
+[Link](https://recomendar-filmes.streamlit.app/)
 
 ## 📌 Objetivo do Projeto
 
@@ -218,3 +223,11 @@ Este projeto utiliza conceitos importantes de Ciência de Dados e Machine Learni
 * Utilizar banco de dados
 * Sistema de usuários e avaliações
 * Recomendação híbrida
+  
+---
+
+## 👨‍💻 Autor
+
+Lucas Rios Ferreira
+
+Projeto desenvolvido para estudo de Python, Machine Learning, NLP e Sistemas de Recomendação.

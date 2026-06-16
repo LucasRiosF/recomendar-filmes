@@ -33,14 +33,15 @@ O arquivo `filmes.csv` contém:
 
 * Título do filme
 * Gênero do filme
+* Subgênero do filme
 * Diretor do filme
 * Descrição/resumo do filme
 
 Exemplo:
 
 ```csv
-titulo,genero,diretor,descricao
-Matrix,Ficção Científica,Wachowski,"Um hacker descobre a verdade sobre sua realidade..."
+titulo,genero,subgenero,diretor,descricao
+Matrix,Ficção Científica,Cyberpunk,Wachowski,"Um hacker descobre a verdade sobre sua realidade..."
 ```
 
 ---
@@ -75,7 +76,7 @@ As informações dos filmes são transformadas em números usando o algoritmo **
 
 ```python
 df['conteudo'] = (
-    df['genero'] + ' ' + df['diretor'] + ' ' + df['descricao']
+    df['genero'] + ' ' + df['subgenero'] + ' ' + df['diretor'] + ' ' + df['descricao']
 )
 
 vetorizar = TfidfVectorizer(stop_words=None)
@@ -144,9 +145,12 @@ o sistema:
 Exemplo de saída:
 
 ```bash
-Filmes semelhantes a 'Matrix': 
-- Senhor dos Anéis (similaridade: 0.11)
-- Matrix Revolutions (similaridade: 0.09)
+ Filmes semelhantes a 'matrix': 
+- Matrix Reloaded (similaridade: 0.24)
+- Ready Player One (similaridade: 0.24)
+- Blade Runner (similaridade: 0.15)
+- Interestelar (similaridade: 0.13)
+- Avatar (similaridade: 0.13)
 ```
 
 ---
@@ -164,7 +168,7 @@ pip install pandas scikit-learn
 ### 2. Execute o arquivo
 
 ```bash
-python recomendador.py
+python app.py
 ```
 
 ---
